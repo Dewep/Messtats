@@ -1,0 +1,26 @@
+{
+	"size": 0,
+	"aggs": {
+		"text": {
+			"filter": {
+				"exists": {
+					"field": "message"
+				}
+			},
+			"aggs": {
+				"from": {
+					"terms": {
+						"field": "from.name"
+					},
+					"aggs": {
+						"words": {
+							"value_count": {
+								"field": "message.analyzed"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

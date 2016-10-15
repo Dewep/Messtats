@@ -1,0 +1,20 @@
+{
+	"size": 0,
+	"aggs": {
+		"text": {
+			"filter": {
+				"exists": {
+					"field": "message"
+				}
+			},
+			"aggs": {
+				"messages_over_time": {
+					"date_histogram": {
+						"field": "created_time",
+						"interval": "month"
+					}
+				}
+			}
+		}
+	}
+}

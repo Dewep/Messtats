@@ -1,0 +1,19 @@
+{
+	"size": 0,
+	"aggs": {
+		"term": {
+			"filter": {
+				"term": {
+					"message.analyzed": "bob"
+				}
+			},
+			"aggs": {
+				"from": {
+					"terms": {
+						"field": "from.name"
+					}
+				}
+			}
+		}
+	}
+}
